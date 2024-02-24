@@ -1,0 +1,51 @@
+/* Apply styles to the container */
+#container {
+    width: 80%;
+    margin: 20px auto; /* Center the container and add some space around it */
+}
+
+/* Apply styles to the table */
+#list {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Apply styles to table headers */
+#list th {
+    background-color: #007bff; /* Blue header background */
+    color: white;
+    padding: 12px;
+    text-align: left;
+}
+
+/* Apply alternate background color to table rows */
+#list tr:nth-child(even) {
+    background-color: #f2f2f2; /* Light gray background for even rows */
+}
+
+/* Apply styles to table cells */
+#list td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Style button */
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Style button on hover */
+button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Style button on click */
+button:active {
+    background-color: #004080; /* Even darker blue when clicked */
+}

@@ -1,0 +1,97 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('https://images.pexels.com/photos/268533/pexels-photo-268533.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+h1 {
+    color: #fff;
+    text-align: center;
+}
+
+form {
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px; /* Add margin-top for better spacing */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Add box shadow for depth */
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="button"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input[type="button"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+input[type="button"]:hover {
+    background-color: #0056b3;
+}
+
+p {
+    color: #fff;
+    text-align: center;
+    margin-top: 20px; /* Add margin-top for better spacing */
+}
+
+p a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+p a:hover {
+    text-decoration: underline;
+}
+
+
+select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff; /* Background color */
+    color: #555; /* Text color */
+    appearance: none; /* Remove default arrow */
+}
+
+/* Style the arrow icon */
+select::-ms-expand {
+    display: none;
+}
+
+/* Style the arrow icon for Firefox */
+select::-moz-focus-inner {
+    border: 0;
+}
+
+/* Style the arrow icon for Chrome, Safari, and Opera */
+select::-webkit-inner-spin-button,
+select::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
