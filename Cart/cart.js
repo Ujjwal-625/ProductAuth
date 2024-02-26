@@ -30,8 +30,8 @@ function addtoUi(obj){
         tr.appendChild(td5);
         container.appendChild(tr);
 
-        let arr=JSON.parse(localStorage.getItem("cart"));
         add.addEventListener("click",()=>{
+            let arr=JSON.parse(localStorage.getItem("cart"));
             arr.forEach((ele,i,a)=>{
                 if(ele.pname== obj.pname && ele.desc == obj.desc){
                     let price1=obj.price/obj.quantity;
@@ -39,6 +39,8 @@ function addtoUi(obj){
                     a[i].quantity++;
                     td4.innerText=a[i].quantity;
                     td2.innerText=a[i].price;
+                    obj.price=a[i].price;
+                    obj.quantity=a[i].quantity;
                     localStorage.removeItem("cart");
                     localStorage.setItem("cart",JSON.stringify(arr));
                     return;
@@ -47,18 +49,30 @@ function addtoUi(obj){
         })
 
         remove.addEventListener("click",()=>{
+            let arr=JSON.parse(localStorage.getItem("cart"));
+            let p=obj.price/obj.quantity;
+            obj.price-=p;
+            obj.quantity--;
+            td4.innerText=obj.quantity;
+            td2.innerText=obj.price;
+            if(obj.quantity==0){
+                console.log("obj.quantity")
+                container.removeChild(tr);
+                arr=arr.filter((ele)=>{
+                    return (ele.pname!=obj.pname && ele.desc!=obj.desc);
+                })
+            }
+            else{
+                console.log("go inside forEach");
             arr.forEach((ele,i,a)=>{
-                if(ele.pname==obj.pname && ele.desc==obj.desc && ele.quantity>=1){
-                    let price1=ele.price/ele.quantity;
-                    a[i].price=parseInt(a[i].price)-price1;
-                    a[i].quantity--;
-                    td4.innerText=a[i].quantity;
-                    td2.innerText=a[i].price;
-                    localStorage.removeItem("cart");
-                    localStorage.setItem("cart",JSON.stringify(arr));
-                    return;
+                if(ele.pname== obj.pname && ele.desc == obj.desc){
+                     a[i].quantity=obj.quantity;
+                     a[i].price=obj.price;
                 }
             })
+        }
+        localStorage.removeItem("cart");
+        localStorage.setItem("cart",JSON.stringify(arr));
         })
 }
 

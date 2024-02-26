@@ -51,6 +51,9 @@ function addtoUi(obj){
 
 window.onload=()=>{
     let arr=JSON.parse(localStorage.getItem("todo"));
+
+    let userLogin=JSON.parse(localStorage.getItem("login"));
+    if(userLogin){
     let i=0;
     if(arr){
         if(arr.length<5){
@@ -80,4 +83,6 @@ window.onload=()=>{
         })
     }
     }
+    
+}
 }

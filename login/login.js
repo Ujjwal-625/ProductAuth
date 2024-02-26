@@ -9,7 +9,7 @@ function logIN(){
     // console.log(obj);
     let arr=JSON.parse(localStorage.getItem("Users"));
     let lin=false;
-    if(arr.length>=1){
+    if(arr && arr.length>=1){
         arr.forEach((ele)=>{
             if(ele.username==obj.username && ele.password==obj.password && ele.role==obj.role){
                 console.log(`${ele.username} ${ele.password} ${ele.role}`);
@@ -30,6 +30,7 @@ function logIN(){
         })
     }
     else{
+        window.location.href="../signup/sign.html";
         console.log("empty local storage");
     }
     if(!lin){
