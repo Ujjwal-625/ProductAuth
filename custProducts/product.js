@@ -34,6 +34,7 @@ function addtoUi(obj){
             })
             if(!add){
                 obj.quantity=1;
+                obj.username=JSON.parse(localStorage.getItem("login"))[0].username;
                 array.push(obj);
             }
             localStorage.removeItem("cart");
@@ -41,6 +42,7 @@ function addtoUi(obj){
         }
         else{
             obj.quantity=1;
+            obj.username=JSON.parse(localStorage.getItem("login"))[0].username;
             let a=[];
             a.push(obj);
             localStorage.setItem("cart",JSON.stringify(a));

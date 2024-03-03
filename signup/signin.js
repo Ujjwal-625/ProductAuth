@@ -1,4 +1,3 @@
-// const { localsName } = require("ejs");
 
 const pname=document.getElementById("username");
 const password=document.getElementById("password");

@@ -29,11 +29,13 @@ function addtoUi(obj){
         tr.appendChild(td4);
         tr.appendChild(td5);
         container.appendChild(tr);
-
+        let linUser=JSON.parse(localStorage.getItem("login"))[0].username;
         add.addEventListener("click",()=>{
+            // console.log("clicked");
             let arr=JSON.parse(localStorage.getItem("cart"));
             arr.forEach((ele,i,a)=>{
-                if(ele.pname== obj.pname && ele.desc == obj.desc){
+                console.log(`${ele.username} ${linUser}`);
+                if(ele.username==linUser && ele.pname== obj.pname && ele.desc == obj.desc){
                     let price1=obj.price/obj.quantity;
                     a[i].price=parseInt(a[i].price)+price1;
                     a[i].quantity++;
@@ -65,7 +67,7 @@ function addtoUi(obj){
             else{
                 console.log("go inside forEach");
             arr.forEach((ele,i,a)=>{
-                if(ele.pname== obj.pname && ele.desc == obj.desc){
+                if(ele.username == linUser && ele.pname== obj.pname && ele.desc == obj.desc){
                      a[i].quantity=obj.quantity;
                      a[i].price=obj.price;
                 }
@@ -78,6 +80,7 @@ function addtoUi(obj){
 
 window.onload=()=>{
     let cart=JSON.parse(localStorage.getItem("cart"));
+    let linUser=JSON.parse(localStorage.getItem("login"))[0].username;
     if(cart){
         //console.log("adding");
         const tr=document.createElement("tr");
@@ -102,6 +105,7 @@ window.onload=()=>{
         container.appendChild(tr);
 
         cart.forEach((ele)=>{
+            if(linUser==ele.username)
             addtoUi(ele);
         })
     }
